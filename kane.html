@@ -1,0 +1,23 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Casa da Vida · Astronáutica</title><style>*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#d7c39b}iframe{width:100%;height:100%;border:0;display:block}#status{position:fixed;right:10px;bottom:10px;padding:7px 12px;font:11px system-ui;background:#164656;color:#fff0ca;border:1px solid #a98449;z-index:9999;pointer-events:none}</style></head><body><iframe src="./index.html" title="Astronáutica original com molduras da Casa da Vida" id="source"></iframe><div id="status">Aplicando arquitetura da Casa da Vida…</div><script>
+(function(){
+var frame=document.getElementById('source'),status=document.getElementById('status');
+var styleText=":root{--kane-sand:#ead4a4;--kane-stone:#b78d4c;--kane-lapis:#185663}body::before,body::after{content:\"\";position:fixed;top:0;bottom:0;width:7px;z-index:99999;pointer-events:none;background:repeating-linear-gradient(180deg,#a47b39 0 3px,#f4dfb2 3px 7px,#be9554 7px 11px)}body::before{left:0}body::after{right:0}.kane-temple-frame{position:relative!important;border:3px double #a98344!important;box-shadow:inset 0 0 0 5px #ead2a6,inset 0 0 0 7px #bd985a,0 3px 8px #49321a20!important}.kane-temple-frame::before{content:\"𓇳 𓂀 𓋹 𓆣 𓂀\";pointer-events:none;position:absolute;top:0;left:15px;right:15px;text-align:center;white-space:nowrap;overflow:hidden;font-size:12px;letter-spacing:6px;height:15px;color:#957038;background:#f4e1bc;z-index:10}.kane-temple-frame::after{content:\"\";pointer-events:none;position:absolute;bottom:2px;left:9px;right:9px;height:5px;background:repeating-linear-gradient(90deg,#b18a49 0 8px,#f3dfb6 8px 13px);z-index:10}.kane-front{position:relative!important;border-bottom:9px double #aa8041!important;background-image:linear-gradient(115deg,#d4b77588,#f5e5c999,#d4b77588)!important}.kane-front::after{content:\"𓂀 𓇳 𓋹 𓆣 𓂀\";position:absolute;bottom:0;left:25%;right:25%;text-align:center;pointer-events:none;letter-spacing:8px;font-size:12px;color:#9d7b44}.kane-major{border-top:8px double #aa8041!important;border-bottom:6px double #aa8041!important}.kane-rail-left{border-left:9px double #b79453!important}.kane-rail-right{border-right:9px double #b79453!important}.kane-headline{border-bottom:3px double #b68e4a!important}.kane-headline::after{content:\" 𓇳 \";font-size:14px;color:#a77d40}";
+function decorate(doc){
+ if(!doc.head||!doc.body)return;
+ if(!doc.getElementById('kane-style')){var style=doc.createElement('style');style.id='kane-style';style.textContent=styleText;doc.head.appendChild(style)}
+ var selectors='h1,h2,h3,h4,header,[class*="title"],[class*="heading"],[class*="hero"]';
+ var targets=[['astronáutica','kane-front'],['programação','kane-major'],['tarefas e missões','kane-temple-frame'],['fio de ariadne','kane-temple-frame'],['oráculo','kane-temple-frame'],['meta do dia','kane-temple-frame']];
+ var candidates=Array.from(doc.querySelectorAll(selectors));
+ for(var t of targets){
+  var matches=candidates.filter(function(e){return e.textContent&&e.textContent.trim().toLowerCase().includes(t[0])&&e.textContent.length<1500}).slice(0,4);
+  for(var el of matches){
+   var p=el;for(var n=0;n<4&&p.parentElement;n++){if(p.offsetWidth>120&&p.offsetHeight>70)break;p=p.parentElement}
+   if(p!==doc.body&&p.offsetWidth>95&&p.offsetHeight>30)p.classList.add(t[1]);
+  }
+ }
+ var swaps=[[/fio de ariadne/gi,'Fio de Ísis'],[/guia do campista/gi,'Papiro do Aprendiz'],[/chalé vii/gi,'XXI NOMO'],[/fogueira/gi,'Ciclo de Rá'],[/astronáutica/gi,'CASA DA VIDA']];
+ for(var el of candidates){if(el.children.length===0&&el.textContent.length<75){var s=el.textContent;for(var pair of swaps)s=s.replace(pair[0],pair[1]);if(s!==el.textContent)el.textContent=s}}
+}
+frame.addEventListener('load',function(){try{var doc=frame.contentDocument;if(!doc||!doc.body)throw Error('not same-origin');decorate(doc);status.textContent='Casa da Vida · molduras aplicadas';setTimeout(function(){status.style.display='none'},2500);new MutationObserver(function(){if(!doc.getElementById('kane-style'))decorate(doc)}).observe(doc.documentElement,{childList:true})}catch(e){status.textContent='Execute em hospedagem ou servidor local da mesma origem';console.warn(e)}})
+})();
+</script></body></html>
