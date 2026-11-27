@@ -1,0 +1,53 @@
+/* Tema Astronáutica: seletor de tema e paleta do acampamento */
+#vx .vx-ap{display:inline-flex;align-items:center;gap:8px;min-height:36px;padding:4px 6px 4px 14px;border:2px solid var(--line2);border-radius:999px;background:var(--panel)}
+#vx .vx-ap span{font:11px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--dim)}
+#vx .vx-ap select{min-height:28px;border:0;background:var(--panel2);color:var(--bone);font:600 12px var(--sans);padding:2px 8px;border-radius:999px;cursor:pointer}
+
+/* ---------- Tema Astronáutica (inspirado na Argonáutica) ----------
+   Mar e céu da travessia do Argo: ouro do velocino (Convés), turquesa do Egeu
+   (Expedição), azul estelar (Biblioteca), púrpura tíria (Porão). Céu estrelado
+   no escuro, pergaminho no claro, faixa de grega no cabeçalho. */
+body[data-skin="astro"]{--display:"Cinzel",Georgia,"Times New Roman",serif;
+ --a-op:#f0b84c;--a-camp:#2fc8b6;--a-est:#7aa8ff;--a-dos:#c27ae0}
+body[data-skin="astro"]:not(.claro){--void:#08111d;--bg:#08111d;--panel:#0f1b2b;--panel2:#152539;--well:#050c16;--line:#1f3350;--line2:#33507a;
+ --bone:#f4efe3;--ink:#d3dbe8;--dim:#8c9cb6;--chip:#0d1726;--chip2:#0a131f;--hair:#16263c;--deep:#0c1728;--blk:#040910;
+ --pq:#1b1520;--pa:#1b1a12;--pc:#0e1b2e;--pqb:#3a2b3c;--pab:#3d3719;--pcb:#1f3a60}
+body.claro[data-skin="astro"]{--void:#f5efe1;--bg:#f5efe1;--panel:#fffaf0;--panel2:#f1e8d4;--well:#ebe0c9;--line:#dacdaf;--line2:#b6a37b;
+ --bone:#16202c;--ink:#33404f;--dim:#5f6878;--a-op:#8a5f00;--a-camp:#0f6e64;--a-est:#2357b0;--a-dos:#7a3a9c}
+body[data-skin="astro"][data-vx-view="op"]{--red:var(--a-op)}
+body[data-skin="astro"][data-vx-view="camp"]{--red:var(--a-camp)}
+body[data-skin="astro"][data-vx-view="est"]{--red:var(--a-est)}
+body[data-skin="astro"][data-vx-view="dos"]{--red:var(--a-dos)}
+body[data-skin="astro"] .a-op{--red:var(--a-op)} body[data-skin="astro"] .a-camp{--red:var(--a-camp)}
+body[data-skin="astro"] .a-est{--red:var(--a-est)} body[data-skin="astro"] .a-dos{--red:var(--a-dos)}
+body[data-skin="astro"] #vx .vx-tabs [data-view="op"]{--tab:var(--a-op)}
+body[data-skin="astro"] #vx .vx-tabs [data-view="camp"]{--tab:var(--a-camp)}
+body[data-skin="astro"] #vx .vx-tabs [data-view="est"]{--tab:var(--a-est)}
+body[data-skin="astro"] #vx .vx-tabs [data-view="dos"]{--tab:var(--a-dos)}
+body[data-skin="astro"] #vx .vx-metrics span:nth-child(1){--m:var(--a-op)}
+body[data-skin="astro"] #vx .vx-metrics span:nth-child(2){--m:var(--a-camp)}
+body[data-skin="astro"] #vx .vx-metrics span:nth-child(3){--m:var(--a-est)}
+body[data-skin="astro"] #vx .vx-metrics span:nth-child(4){--m:var(--a-dos)}
+body[data-skin="astro"]{background-image:
+ radial-gradient(1.3px 1.3px at 20px 30px,color-mix(in srgb,var(--a-op) 60%,transparent),transparent),
+ radial-gradient(1px 1px at 95px 85px,color-mix(in srgb,var(--bone) 40%,transparent),transparent),
+ radial-gradient(1.5px 1.5px at 150px 20px,color-mix(in srgb,var(--a-est) 50%,transparent),transparent),
+ radial-gradient(1px 1px at 60px 140px,color-mix(in srgb,var(--bone) 28%,transparent),transparent),
+ radial-gradient(1px 1px at 130px 120px,color-mix(in srgb,var(--a-camp) 40%,transparent),transparent);
+ background-size:180px 170px}
+body.claro[data-skin="astro"]{background-image:radial-gradient(1px 1px at 12px 12px,color-mix(in srgb,var(--a-op) 24%,transparent),transparent);background-size:24px 24px}
+body[data-skin="astro"] #vx .vx-hero{position:relative;padding-top:22px}
+body[data-skin="astro"] #vx .vx-hero::before{content:"";position:absolute;left:0;right:0;top:0;height:12px;background-color:var(--red);opacity:.85;
+ -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='12' viewBox='0 0 24 12'%3E%3Cpath d='M0 11H22V1H6V8H17V5H11' fill='none' stroke='black' stroke-width='2'/%3E%3C/svg%3E") repeat-x left center/24px 12px;
+ mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='12' viewBox='0 0 24 12'%3E%3Cpath d='M0 11H22V1H6V8H17V5H11' fill='none' stroke='black' stroke-width='2'/%3E%3C/svg%3E") repeat-x left center/24px 12px}
+body[data-skin="astro"] #vx .vx-hero h2{text-transform:none;letter-spacing:.01em;text-shadow:none;font-weight:800}
+body[data-skin="astro"] #vx .vx-card,body[data-skin="astro"] .gm,body[data-skin="astro"] .cc-hd,body[data-skin="astro"] .cc-cd,
+body[data-skin="astro"] .cc-card,body[data-skin="astro"] .cc-k,body[data-skin="astro"] .cc-ed{border-radius:8px;box-shadow:0 0 0 1px color-mix(in srgb,var(--red) 18%,transparent),0 8px 20px -12px color-mix(in srgb,var(--red) 65%,transparent)}
+body[data-skin="astro"] #vx .vx-tabs button[data-view]{border-radius:8px;letter-spacing:.06em}
+body[data-skin="astro"] #vx .vx-tabs button[data-view][aria-selected=true]{transform:none;box-shadow:0 6px 16px -8px var(--tab)}
+body[data-skin="astro"] .gm-l b{color:var(--a-op)}
+body[data-skin="astro"] .gm-sq b{color:var(--a-camp)}
+body[data-skin="astro"] .gm-bar i{background:linear-gradient(90deg,var(--a-est),var(--a-op))}
+body[data-skin="astro"] h2.sec{font-family:var(--display);letter-spacing:.04em}
+
+/* ---------- Tesouro (finanças do AxisHub) ---------- */

@@ -1,0 +1,152 @@
+/* Paleta base: escala, modo claro e as quatro cores por área */
+:root{--imgv:168px;--imgh:320px;--s1:3px;--s2:6px;--s3:9px;--s4:12px;--s5:14px;--s6:18px;--s7:24px;
+ --f1:9px;--f2:10px;--f3:12px;--f4:13px;--f5:14px;--f6:16px}
+.card,.narr,.tile,.ap,.dg,.rwc,.lc,.lang,.prog,.pomo,.ctn .idx,.lpbody,.mcarta,.novo,.frm,
+.corpo>div,.op3>div,.cap .box2,.abert,.eco .fala,.eco .num,.ign .col,.ign .corrente,.mpainel .deckbar,
+.lado,.orb,.mc .lado{padding:var(--s5)}
+.grp{padding:0}.grp>.lab{padding:var(--s2) var(--s4)}.grp>button{padding:var(--s3) var(--s4)}
+button{padding:8px 10px}
+.chip,.lptabs button,.modo button,.estb button,.rf3 button{padding:var(--s2) var(--s3)}
+.tb td,.classif td,.hbt td{padding:var(--s2) var(--s3)}
+.tb th,.classif th,.hbt th{padding:var(--s2) var(--s3)}
+h2.sec{margin:var(--s6) 0 var(--s2)}
+.tiles,.acts,.two,.rw,.diag,.apt,.op3,.corpo,.ctn,.band,.cap,.mc,.idm,.lcards,.gr3{margin-bottom:var(--s3)}
+.log,.deck,.lp,.rt,.ign,.eco,.foot{margin-bottom:var(--s3)}
+.wrap{padding:0 var(--s5) 80px}
+
+/* ---------- modo claro ---------- */
+body.claro{
+  --void:#f6f2e7; --bg:#f6f2e7; --panel:#fffdf7; --panel2:#f1ecde; --well:#eee8d9;
+  --line:#d9d1bd; --line2:#a99f88;
+  --bone:#141428; --ink:#33344a; --dim:#5d5f78;
+  --red:#b8430f; --redd:#e3a173; --redf:#f7e4d6;
+  --pq:#fff2f1; --pa:#fff8e1; --pc:#eef3ff; --pqb:#f0cdca; --pab:#ead99c; --pcb:#c8d5f4;
+  --blk:#ebe4d2; --chip:#f2ecdf; --chip2:#e9e2d2; --chiph:#efe8ff; --onred:#ffffff;
+  --veil:rgba(251,249,244,.86); --veil2:rgba(251,249,244,.78); --veil3:rgba(251,249,244,.82);
+  --hair:#e3ddcf; --deep:#f0ebe0;
+  color-scheme: light;
+}
+body.claro .pl img,body.claro .fr img,body.claro .ph img{filter:grayscale(1) contrast(1.05) brightness(1.04)}
+body.claro .pl .sc2,body.claro .sc{opacity:.35}
+body.claro .hud .hfx canvas{opacity:.3;mix-blend-mode:multiply}
+body.claro .tick{text-shadow:none}
+body.claro .est7 div i.e5{background:#2b2a30} body.claro .est7 div i.e4{background:#6f6a60}
+body.claro .boot{background:var(--bg)}
+.btema{width:auto;margin:0 0 0 12px;padding:4px;border:1px solid var(--line2);background:transparent;
+ color:var(--dim);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;vertical-align:middle}
+.btema svg{width:15px;height:15px;display:block}
+.btema:hover{border-color:var(--red);color:var(--red)}
+
+/* ---------- paleta base (quatro cores por área) ----------
+   Quatro cores, uma por área: azul elétrico (Operação), amarelo (Campanha),
+   roxo (Estudo), vermelho (Arquivo do mutante). --red continua sendo o acento
+   de todo o documento; aqui ele passa a mudar com a área aberta. */
+:root{--azul:#3d9bff;--amarelo:#ffcb2e;--roxo:#a77bff;--vermelho:#ff4d5e;--verde:#2fd08a}
+body.claro{--azul:#0b63d1;--amarelo:#8f6400;--roxo:#6b3fd4;--vermelho:#d0182c;--verde:#0f8a55}
+body,body.claro{--red:var(--azul)}
+body[data-vx-view="op"]{--red:var(--azul)}
+body[data-vx-view="camp"]{--red:var(--amarelo)}
+body[data-vx-view="est"]{--red:var(--roxo)}
+body[data-vx-view="dos"]{--red:var(--vermelho)}
+body{--redd:color-mix(in srgb,var(--red) 55%,#000);--redf:color-mix(in srgb,var(--red) 16%,var(--panel))}
+body.claro{--redd:color-mix(in srgb,var(--red) 45%,#fff);--redf:color-mix(in srgb,var(--red) 12%,var(--panel))}
+.a-op{--red:var(--azul)} .a-camp{--red:var(--amarelo)} .a-est{--red:var(--roxo)} .a-dos{--red:var(--vermelho)}
+
+/* retícula de gibi atrás dos painéis */
+body{background-color:var(--void);
+ background-image:radial-gradient(circle at 1px 1px,color-mix(in srgb,var(--red) 16%,transparent) 1.1px,transparent 1.7px);
+ background-size:13px 13px;background-attachment:fixed}
+
+/* abas: cada uma com a cor da própria área */
+#vx .vx-tabs [data-view="op"]{--tab:var(--azul)}
+#vx .vx-tabs [data-view="camp"]{--tab:var(--amarelo)}
+#vx .vx-tabs [data-view="est"]{--tab:var(--roxo)}
+#vx .vx-tabs [data-view="dos"]{--tab:var(--vermelho)}
+#vx .vx-tabs button[data-view]{border:2px solid var(--tab);border-bottom-width:5px;font-weight:700;
+ font-family:var(--display);letter-spacing:.04em;text-transform:uppercase;font-size:13px;background:var(--panel)}
+#vx .vx-tabs button[data-view]:hover{background:color-mix(in srgb,var(--tab) 14%,var(--panel));border-color:var(--tab)}
+#vx .vx-tabs button[data-view][aria-selected=true]{background:var(--tab);color:var(--onred);border-color:var(--tab);
+ box-shadow:5px 5px 0 color-mix(in srgb,var(--tab) 35%,transparent);transform:translate(-2px,-2px)}
+
+/* manchete e métricas */
+#vx .vx-top h2{font-family:var(--display);letter-spacing:-.01em;text-transform:uppercase;
+ text-shadow:3px 3px 0 color-mix(in srgb,var(--red) 45%,transparent)}
+#vx .vx-metrics span{border-left:4px solid var(--m);padding:2px 0 2px 12px;font-size:12px;color:var(--dim)}
+#vx .vx-metrics b{color:var(--m);font-family:var(--display)}
+#vx .vx-metrics span:nth-child(1){--m:var(--azul)}
+#vx .vx-metrics span:nth-child(2){--m:var(--amarelo)}
+#vx .vx-metrics span:nth-child(3){--m:var(--roxo)}
+#vx .vx-metrics span:nth-child(4){--m:var(--vermelho)}
+
+/* cartões como quadros de HQ: borda firme e sombra deslocada */
+#vx .vx-card{border:2px solid var(--line2);border-radius:2px;
+ box-shadow:6px 6px 0 color-mix(in srgb,var(--red) 30%,transparent)}
+#vx .vx-main{border-color:var(--red)}
+#vx .vx-time{font-family:var(--display);color:var(--red);letter-spacing:.02em}
+#vx button[data-start="25"]{box-shadow:3px 3px 0 color-mix(in srgb,var(--red) 40%,transparent)}
+
+/* títulos de seção como legenda de quadro */
+h2.sec{border-bottom:3px solid var(--red)}
+h2.sec::before{background:var(--red);color:var(--onred);padding:2px 7px;border-radius:2px}
+
+/* núcleo: cada medidor com uma cor */
+.tiles{gap:4px;background:transparent}
+.tile{border:2px solid var(--line);border-top:5px solid var(--t,var(--red))}
+.tiles .tile:nth-child(4n+1){--t:var(--azul)}
+.tiles .tile:nth-child(4n+2){--t:var(--amarelo)}
+.tiles .tile:nth-child(4n+3){--t:var(--roxo)}
+.tiles .tile:nth-child(4n+4){--t:var(--vermelho)}
+.tile .big{color:var(--t,var(--bone))}
+
+/* intervenção x recarga */
+.acts button,.acts .act{border-width:2px}
+
+/* grade semanal: faixas de horário com cor própria */
+.tbc.ok{border-left-color:var(--red)}
+.tbh.hoje{color:var(--red)}
+
+/* barra lateral: cada grupo na cor da sua área */
+.nva .nvg{border-left:4px solid var(--red);padding-left:8px}
+.nva .nvgt{color:var(--red)}
+.nva [data-nv]:hover b,.nva [data-nv].on b{color:var(--red)}
+
+/* área de Estudo */
+#vx .vx-est{border-color:var(--roxo)}
+
+/* grade semanal: o texto quebra em duas linhas em vez de ser cortado */
+.tbc textarea{display:block;width:100%;height:100%;min-height:40px;resize:none;overflow:hidden;background:transparent;border:0;
+ color:var(--ink);font-family:var(--sans);font-size:11px;line-height:1.3;padding:6px 6px}
+.tbc textarea:focus{outline:2px solid var(--red);outline-offset:-2px;color:var(--bone)}
+.tbc.ok textarea{color:var(--bone)}
+.tbc textarea::placeholder{color:var(--line2)}
+@media(max-width:760px){.tbc textarea{font-size:9.5px;padding:5px 3px}}
+
+/* celular: corpo em uma coluna; cartões de idioma sem estourar a tela */
+@media(max-width:600px){
+ .corpo{grid-template-columns:1fr!important}
+ .corpo>div{min-width:0}
+ .lcards{grid-template-columns:1fr!important}
+ .lc,.lc .top{min-width:0;flex-wrap:wrap}
+ .lc .cef{white-space:normal;overflow-wrap:anywhere;min-width:0}
+}
+
+/* nuvem: estado da sincronização no topo */
+#vx .nv-chip{display:inline-flex;align-items:center;gap:8px;min-height:36px;padding:6px 12px;border:2px solid var(--line2);
+ background:var(--panel);font:11px var(--mono);letter-spacing:.06em;color:var(--dim);border-radius:999px}
+#vx .nv-chip b{color:var(--bone);font-weight:600;text-transform:uppercase;letter-spacing:.12em}
+#vx .nv-chip i{width:9px;height:9px;border-radius:50%;background:var(--dim);flex:none}
+#vx .nv-chip.nv-ok i{background:var(--verde);box-shadow:0 0 0 3px color-mix(in srgb,var(--verde) 25%,transparent)}
+#vx .nv-chip.nv-env i,#vx .nv-chip.nv-baixa i,#vx .nv-chip.nv-carregando i{background:var(--amarelo)}
+#vx .nv-chip.nv-erro i{background:var(--vermelho)}
+#vx .nv-chip.nv-off{border-style:dashed}
+#vx-dlg .nv-dlg label{display:grid;gap:4px;font:12px var(--sans);color:var(--ink)}
+#vx-dlg .nv-erro{min-height:1em;margin:0;font:12px var(--sans);color:var(--vermelho)}
+
+/* botão de tema no cabeçalho */
+#vx .vx-top{flex-wrap:wrap}
+#vx .vx-tema{display:inline-flex;align-items:center;gap:8px;min-height:36px;padding:6px 14px;border:2px solid var(--line2);border-radius:999px;
+ background:var(--panel);color:var(--bone);font:11px var(--mono);letter-spacing:.12em;text-transform:uppercase}
+#vx .vx-tema i{font-style:normal;font-size:14px;color:var(--amarelo)}
+#vx .vx-tema:hover{border-color:var(--red)}
+
+/* ---------- Painel do concurso ---------- */
